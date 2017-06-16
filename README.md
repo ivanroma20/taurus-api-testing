@@ -1,6 +1,6 @@
 
 
-[![N|Solid](http://qajungle.com/wp-content/uploads/2016/01/logo2.png)](https://qajungle.com)
+[![N|Solid](http://qajungle.com/wp-content/uploads/2016/01/logo2.png)](http://qajungle.com)
 
 # Taurus Rest API Testing
 
