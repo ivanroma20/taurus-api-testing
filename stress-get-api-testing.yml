@@ -1,0 +1,29 @@
+execution:
+- scenario: posts-get-stress
+  concurrency: 300
+  throughput: 500
+  ramp-up: 5m
+  hold-for: 1h
+
+scenarios:
+  posts-get-stress:
+    timeout: 5s
+    retrieve-resources: false
+    store-cache: false
+    store-cookie: false
+    default-address: 'http://localhost:3000'
+    headers:
+      Content-Type: application/json
+    requests:
+    - url: '/posts'
+      method: GET
+
+modules:
+  blazemeter:
+    token: ?????
+
+reporting:
+  - module: blazemeter
+    report-name: Posts API stress
+    test: Posts API test
+    project: QAJungle Tests Group

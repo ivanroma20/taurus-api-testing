@@ -1,0 +1,50 @@
+execution:
+- scenario: posts-get-load
+  concurrency: 20
+  throughput: 20
+  ramp-up: 5m
+  hold-for: 1h
+- scenario: posts-post-load
+  concurrency: 1
+  throughput: 1
+  ramp-up: 1ms
+  hold-for: 1h
+
+scenarios:
+  posts-get-load:
+    timeout: 5s
+    retrieve-resources: false
+    store-cache: false
+    store-cookie: false
+    default-address: 'http://localhost:3000'
+    headers:
+      Content-Type: application/json
+    requests:
+    - url: '/posts'
+      method: GET
+  posts-post-load:
+    timeout: 5s
+    retrieve-resources: false
+    store-cache: false
+    store-cookie: false
+    default-address: 'http://localhost:3000'
+    headers:
+      Content-Type: application/json
+    requests:
+    - url: '/posts'
+      method: POST
+      headers:
+        Content-Type: application/json
+      body:
+        title: taurus-load
+        author: taurus
+
+modules:
+  blazemeter:
+    token: ???????
+
+reporting:
+  - module: blazemeter
+    report-name: Posts API load
+    test: Posts API test
+    project: QAJungle Tests Group
