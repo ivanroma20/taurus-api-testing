@@ -1,7 +1,4 @@
 
-
-[![N|Solid](http://qajungle.com/wp-content/uploads/2016/01/logo2.png)](http://qajungle.com)
-
 # Taurus Rest API Testing
 
 Taurus es una herramienta open source que nos permite automatizar de forma sencilla nuestras pruebas.
@@ -12,14 +9,14 @@ En el proyecto se presentan los scripts para lanzar pruebas de rendimiento sobre
 
 ### Ejecutar las pruebas
 
-En el caso de las pruebas de carga:
-
 ```sh
 $ bzt load-api-testing.yml
 ```
 
-En el caso de las pruebas de estrés:
+### Ejecutar prueba con reporte externo de blazemeter
+Debes crearte una cuenta en blazemeter y crear tu token para reamplazarlo en el archivo de configuración .yml
 
 ```sh
-$ bzt stress-get-api-testing.yml stress-post-api-testing.yml
+$ bzt load-api-testing.yml -report 
+```
 ```
