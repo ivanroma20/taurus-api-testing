@@ -1,0 +1,21 @@
+execution:
+  concurrency: 100
+  ramp-up: 10
+  hold-for: 5m
+  scenario:
+    script: Culqi-Stress.jmx
+    properties: 
+      hostame: http://internal-v3-qa.culqi.xyz
+
+
+modules:
+  blazemeter:
+    token: 263e3117dcbb911d78dca2a0:77f7e4fe5a8bbe81346b2db955ff6fb262180947ad546b815d1e75159818e6a0665688c0
+
+reporting:
+  - module: blazemeter
+    report-name: Culqi API stress
+    test: Culqi API test
+    project: QACulqi Tests Group
+  - module: junit-xml
+    filename: report.xml

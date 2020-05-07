@@ -1,0 +1,22 @@
+execution:
+  concurrency: 1
+  ramp-up: 1s
+  hold-for: 1m
+  #iterations: 3
+  scenario:
+    script: token-test.jmx
+    properties: 
+      hostame: https://qa-api.culqi.xyz/v2/tokens
+
+
+modules:
+  blazemeter:
+    token: 263e3117dcbb911d78dca2a0:77f7e4fe5a8bbe81346b2db955ff6fb262180947ad546b815d1e75159818e6a0665688c0
+
+reporting:
+  - module: blazemeter
+    report-name: listar tokens
+    test: Listar tokens test
+    project: QaCulqi Tests Group
+  - module: junit-xml
+    filename: report.xml
